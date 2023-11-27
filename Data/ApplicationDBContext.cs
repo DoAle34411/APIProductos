@@ -73,7 +73,8 @@ namespace APIProductos.Data
                new User
                {
                    IdUsuario=0981316125,
-                   Clave="Ciscoudla.1"
+                   Clave="Ciscoudla.1",
+                   CodigoAcceso=1
                }
                );
         }
