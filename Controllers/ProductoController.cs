@@ -80,13 +80,12 @@ namespace APIProductos.Controllers
             try
             {
                 Producto producto2 = await _db.Producto.FirstOrDefaultAsync(x => x.IdProducto == IdProducto);
-                if (producto != null)
+                if (producto != null && producto2 !=null)
                 {
                     producto2.Nombre = producto.Nombre != null ? producto.Nombre : producto2.Nombre;
                     producto2.Descripcion = producto.Descripcion != null ? producto.Descripcion : producto2.Descripcion;
                     producto2.Cantidad = producto.Cantidad != null ? producto.Cantidad : producto2.Cantidad;
                     producto2.Autor = producto.Autor != null ? producto.Autor : producto2.Autor;
-                    producto2.Costo = producto.Costo != null ? producto.Costo : producto2.Costo;
                     producto2.Genero = producto.Genero != null ? producto.Genero : producto2.Genero;
                     _db.Producto.Update(producto2);
                     await _db.SaveChangesAsync();

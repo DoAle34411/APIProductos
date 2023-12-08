@@ -15,8 +15,6 @@ namespace APIProductos.Models
         [Required]
         public string Autor { get; set; }
         [Required]
-        public double Costo { get; set; }
-        [Required]
         public string Genero { get; set; }
     }
 }

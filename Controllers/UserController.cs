@@ -18,12 +18,11 @@ namespace APIProductos.Controllers
         }
 
         [HttpGet("{IdUsuario}/{Clave}")]
-        public async Task<IActionResult> Get(int IdUsuario, string Clave)
+        public async Task<IActionResult> Get(string Cedula, string Clave)
         {
             try
             {
-
-                User usuario_encontrado = await _db.User.Where(x => x.IdUsuario == IdUsuario && x.Clave == Clave).FirstOrDefaultAsync();
+                User usuario_encontrado = await _db.User.Where(x => x.Cedula == Cedula && x.Clave == Clave).FirstOrDefaultAsync();
 
                 if (usuario_encontrado == null)
                 {
@@ -35,6 +34,27 @@ namespace APIProductos.Controllers
             catch (Exception ex)
             {
                 Console.WriteLine("UsuarioNoEncontradoAPI");
+                return BadRequest(ex.Message);
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Post([FromBody] User user)
+        {
+            try
+            {
+                User user2 = await _db.User.FirstOrDefaultAsync(x => x.Cedula == user.Cedula);
+                if (user2 == null && user != null)
+                {
+                    await _db.User.AddAsync(user);
+                    await _db.SaveChangesAsync();
+                    return Ok(user);
+                }
+
+                return BadRequest("El usuario ya existe");
+            }
+            catch (Exception ex)
+            {
                 return BadRequest(ex.Message);
             }
         }
