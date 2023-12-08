@@ -11,6 +11,7 @@ namespace APIProductos.Models
         [Required]
         public string Descripcion { get; set; }
         [Required]
+        [Range(1, int.MaxValue)]
         public int Cantidad { get; set; }
         [Required]
         public string Autor { get; set; }

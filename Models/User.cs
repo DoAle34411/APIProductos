@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace APIProductos.Models
 {
@@ -15,9 +16,11 @@ namespace APIProductos.Models
         [Required]
         public string Clave { get; set; }
         [Required]
+        [Range(1,4)]
         public int CodigoAcceso { get; set; } // 1 para admin, 2 para usuario trabajador habilitado, 3 usuario trabajador no habilitado y 4 usuario externo
         [Required]
         public bool HaRetirado { get; set; }
+        [ForeignKey("Producto")]
         public int IdLibroRetirado { get; set; }
     }
 }

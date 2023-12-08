@@ -48,13 +48,68 @@ namespace APIProductos.Data
                 }
                 );
             modelBuilder.Entity<User>().HasData(
-               new User
-               {
-                   IdUsuario = 0981316125,
-                   Clave = "Ciscoudla.1",
-                   CodigoAcceso = 1
-               }
-               );
+                new User 
+                {
+                    IdUsuario=1,
+                    Cedula="1600014789",
+                    Clave="Ciscoudla.1",
+                    CodigoAcceso=1,
+                    Nombres="Rosa Leopoldina",
+                    Apellidos="Coronel Loaiza",
+                    HaRetirado=false
+                },
+                new User
+                {
+                    IdUsuario = 2,
+                    Cedula = "0981316125",
+                    Clave = "Ciscoudla.1",
+                    CodigoAcceso = 2,
+                    Nombres = "Alejandra",
+                    Apellidos = "Zambrano",
+                    HaRetirado = false
+                },
+                new User
+                {
+                    IdUsuario = 3,
+                    Cedula = "0982989316",
+                    Clave = "Ciscoudla.1",
+                    CodigoAcceso = 3,
+                    Nombres = "Dorian",
+                    Apellidos = "Havilliard",
+                    HaRetirado = false
+                },
+                new User
+                {
+                    IdUsuario = 4,
+                    Cedula = "1726884552",
+                    Clave = "Ciscoudla.1",
+                    CodigoAcceso = 4,
+                    Nombres = "Alejandra",
+                    Apellidos = "Arcos",
+                    HaRetirado = true,
+                    IdLibroRetirado=1
+                }
+                );
+            modelBuilder.Entity<Eventos>().Property(e => e.Expositores).HasDefaultValue("No especificado");
+            modelBuilder.Entity<Eventos>().HasData(
+                new Eventos
+                {
+                    idEvento = 1,
+                    NombreEvento = "Fin Clases Semestre",
+                    DescripcionEvento = "Un evento donde los estudiantes terminan clases, antes de descubrir si han aprobado o reprobado el semestre.",
+                    diaEvento = new DateTime(2024, 01, 27),
+                    horaEvento=new TimeSpan(0, 0, 0),
+                },
+                new Eventos
+                {
+                    idEvento = 2,
+                    NombreEvento = "Concierto Camila",
+                    DescripcionEvento = "Concierto de la agrupación mexicana Camila, una banda referente de la música pop en Latinoamérica. Mario Domm, Pablo Hurtado y Samo tienen el propósito de llevar un mensaje de amor a todo tipo de público, sin limitarse por las modas o exigencias que determina el mercado.",
+                    diaEvento = new DateTime(2024, 03, 01),
+                    horaEvento = new TimeSpan(20, 00, 00), // 2:30 PM
+                    Expositores = "Camila"
+                }
+                ); ;
         }
     }
 }

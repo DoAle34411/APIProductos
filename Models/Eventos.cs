@@ -10,8 +10,8 @@ namespace APIProductos.Models
         [Required]
         public string DescripcionEvento { get; set; }
         [Required]
-        public DateOnly diaEvento { get; set; }
-        public TimeOnly horaEvento { get; set; }
+        public DateTime diaEvento { get; set; }
+        public TimeSpan horaEvento { get; set; }
         public string Expositores { get; set; }
     }
 }
