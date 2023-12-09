@@ -17,6 +17,20 @@ namespace APIProductos.Controllers
             _db = db;
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {
+            try
+            {
+                List<User> users = await _db.User.ToListAsync();
+                return Ok(users); //Código de Respuesta "200"
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpGet("{Cedula}/{Clave}")]
         public async Task<IActionResult> Get(string Cedula, string Clave)
         {
