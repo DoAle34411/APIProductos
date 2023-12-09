@@ -13,5 +13,6 @@ namespace APIProductos.Models
         public DateTime diaEvento { get; set; }
         public TimeSpan horaEvento { get; set; }
         public string Expositores { get; set; }
+        public int IdUsuario { get; set; }
     }
 }

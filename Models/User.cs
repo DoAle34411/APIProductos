@@ -22,5 +22,7 @@ namespace APIProductos.Models
         public bool HaRetirado { get; set; }
         [ForeignKey("Producto")]
         public int IdLibroRetirado { get; set; }
+
+        public int IdUsuarioActivo { get; set; }
     }
 }

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APIProductos.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20231208211832_NuevaBaseDeDatos")]
-    partial class NuevaBaseDeDatos
+    [Migration("20231209222250_NuevasColumnas")]
+    partial class NuevasColumnas
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,6 +43,9 @@ namespace APIProductos.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasDefaultValue("No especificado");
 
+                    b.Property<int>("IdUsuario")
+                        .HasColumnType("int");
+
                     b.Property<string>("NombreEvento")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -62,6 +65,7 @@ namespace APIProductos.Migrations
                         {
                             idEvento = 1,
                             DescripcionEvento = "Un evento donde los estudiantes terminan clases, antes de descubrir si han aprobado o reprobado el semestre.",
+                            IdUsuario = 0,
                             NombreEvento = "Fin Clases Semestre",
                             diaEvento = new DateTime(2024, 1, 27, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             horaEvento = new TimeSpan(0, 0, 0, 0, 0)
@@ -71,6 +75,7 @@ namespace APIProductos.Migrations
                             idEvento = 2,
                             DescripcionEvento = "Concierto de la agrupación mexicana Camila, una banda referente de la música pop en Latinoamérica. Mario Domm, Pablo Hurtado y Samo tienen el propósito de llevar un mensaje de amor a todo tipo de público, sin limitarse por las modas o exigencias que determina el mercado.",
                             Expositores = "Camila",
+                            IdUsuario = 0,
                             NombreEvento = "Concierto Camila",
                             diaEvento = new DateTime(2024, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             horaEvento = new TimeSpan(0, 20, 0, 0, 0)
@@ -100,6 +105,9 @@ namespace APIProductos.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("IdUsuario")
+                        .HasColumnType("int");
+
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -116,6 +124,7 @@ namespace APIProductos.Migrations
                             Cantidad = 20,
                             Descripcion = "Cuando la cazadora de diecinueve años de edad, Feyre, mata a un lobo el el bosque, una criatura parecida a una bestia llega para exigir venganza. Arrastrada a una traicionera tierra mágica que solo conoce de leyendas, Feyre descubre que su captor no es un animal, sino Tamlin, una de las letales e inmortales hadas que una vez gobernaron su mundo.\nA medida que ella vive en su estado, sus sentimientos por Tamlin se transforman de una hostilidad helada a una pasión que quema a pesar de todas las mentiras y las advertencias que se le han hecho sobre el hermoso y peligroso mundo de las hadas. Pero una antigua y malvada sombre crece sobre las tierras feéricas, y Feyre debe encontrar la manera de detenerla... o condenará a Tamlin, y su mundo, para siempre.",
                             Genero = "Fantasia",
+                            IdUsuario = 0,
                             Nombre = "A Court of Thorns and Roses"
                         },
                         new
@@ -125,6 +134,7 @@ namespace APIProductos.Migrations
                             Cantidad = 20,
                             Descripcion = "Tras haber superado más pruebas de lo que un corazón humano puede soportar, Feyre regresa a la Corte Primavera con los poderes de una alta fae. Sin embargo, no consigue olvidar los crímenes que debió cometer para salvar a Tamlin y a su pueblo, ni el perverso pacto que cerró con Rhysand, el alto lord de la temible Corte Noche. \\nMientras Feyre es arrastrada hacia el interior de la oscura red política y pasional de Rhysand, una guerra inminente acecha y un mal mucho más peligroso que cualquier reina amenaza con destruir todo lo que Feyre alguna vez intentó proteger. Ella podría ser la clave para detenerlo, pero solo si consigue dominar sus nuevos dones, sanar su alma partida en dos y decidir su futuro y el de todo un mundo en crisis. \\nLa autora número uno en ventas en The New York Times y USA Today, Sarah J. Maas, lleva esta saga más que adictiva a un nivel impensado.\",",
                             Genero = "Fantasia",
+                            IdUsuario = 0,
                             Nombre = "A Court of Mist and Fury"
                         },
                         new
@@ -134,6 +144,7 @@ namespace APIProductos.Migrations
                             Cantidad = 20,
                             Descripcion = "Feyre regresa a la Corte Primavera, decidida a reunir información sobre los planes de Tamlin y del rey invasor que amenaza con destruir Prythian. Para esto deberá someterse a un letal y peligroso juego de engaño, en el que un simple error podría condenar no solo a Feyre, sino también a todo el mundo a su alrededor.\\nA medida que la guerra avanza sin tregua, Feyre deberá posicionarse como una alta fae y luchar por dominar sus dones mágicos; tendrá que determinar en cuáles de los deslumbrantes altos lores puede confiar y salir a buscar aliados en los lugares más inesperados.\\nEn este apasionante tercer volumen de la serie de Una corte de rosas y espinas de la exitosísima autora Sarah J. Maas, la tierra se teñirá de rojo mientras majestuosos ejércitos luchan por apoderarse del único objeto que podría destruirlos a todos. \",",
                             Genero = "Fantasia",
+                            IdUsuario = 0,
                             Nombre = "A Court of Wings And Ruin"
                         });
                 });
@@ -167,6 +178,9 @@ namespace APIProductos.Migrations
                     b.Property<int>("IdLibroRetirado")
                         .HasColumnType("int");
 
+                    b.Property<int>("IdUsuarioActivo")
+                        .HasColumnType("int");
+
                     b.Property<string>("Nombres")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -185,6 +199,7 @@ namespace APIProductos.Migrations
                             CodigoAcceso = 1,
                             HaRetirado = false,
                             IdLibroRetirado = 0,
+                            IdUsuarioActivo = 0,
                             Nombres = "Rosa Leopoldina"
                         },
                         new
@@ -196,6 +211,7 @@ namespace APIProductos.Migrations
                             CodigoAcceso = 2,
                             HaRetirado = false,
                             IdLibroRetirado = 0,
+                            IdUsuarioActivo = 0,
                             Nombres = "Alejandra"
                         },
                         new
@@ -207,6 +223,7 @@ namespace APIProductos.Migrations
                             CodigoAcceso = 3,
                             HaRetirado = false,
                             IdLibroRetirado = 0,
+                            IdUsuarioActivo = 0,
                             Nombres = "Dorian"
                         },
                         new
@@ -218,6 +235,7 @@ namespace APIProductos.Migrations
                             CodigoAcceso = 4,
                             HaRetirado = true,
                             IdLibroRetirado = 1,
+                            IdUsuarioActivo = 0,
                             Nombres = "Alejandra"
                         });
                 });

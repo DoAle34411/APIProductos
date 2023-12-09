@@ -106,6 +106,7 @@ namespace APIProductos.Controllers
                     user2.HaRetirado = user.HaRetirado != null ? user.HaRetirado : user2.HaRetirado;
                     user2.IdLibroRetirado = user.IdLibroRetirado != null ? user.IdLibroRetirado : user2.IdLibroRetirado;
                     user2.Cedula = user.Cedula;
+                    user2.IdUsuarioActivo = user.IdUsuarioActivo!=null? user.IdUsuarioActivo:user2.IdUsuarioActivo;
                     _db.User.Update(user2);
                     await _db.SaveChangesAsync();
                     return Ok(user2);

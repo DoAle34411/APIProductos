@@ -17,5 +17,6 @@ namespace APIProductos.Models
         public string Autor { get; set; }
         [Required]
         public string Genero { get; set; }
+        public int IdUsuario { get; set; }
     }
 }

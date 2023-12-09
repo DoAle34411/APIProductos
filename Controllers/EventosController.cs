@@ -83,6 +83,7 @@ namespace APIProductos.Controllers
                     eventos2.Expositores = eventos.Expositores != null ? eventos.Expositores : eventos2.Expositores;
                     eventos2.diaEvento = eventos.diaEvento != null ? eventos.diaEvento : eventos2.diaEvento;
                     eventos2.horaEvento = eventos.horaEvento != null ? eventos.horaEvento : eventos2.horaEvento;
+                    eventos2.IdUsuario = eventos.IdUsuario != null ? eventos.IdUsuario : eventos2.IdUsuario;
                     _db.Eventos.Update(eventos2);
                     await _db.SaveChangesAsync();
                     return Ok(eventos2);
