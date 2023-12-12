@@ -26,7 +26,8 @@ namespace APIProductos.Data
                     Cantidad = 20,
                     Autor = "Sarah J. Maas",
                     Genero = "Fantasia",
-                    IdUsuario=0
+                    IdUsuario=0,
+                    urlImage= "https://bookevin.files.wordpress.com/2015/08/acotar.jpg"
                 },
 
                 new Producto
@@ -37,7 +38,8 @@ namespace APIProductos.Data
                     Cantidad = 20,
                     Autor = "Sarah J. Maas",
                     Genero = "Fantasia",
-                    IdUsuario = 0
+                    IdUsuario = 0,
+                    urlImage= "https://static.wikia.nocookie.net/acourtofthornsandroses/images/5/59/A_Court_of_Mist_and_Fury_-_UK_Cover.jpg/revision/latest/scale-to-width-down/250?cb=20160114162151"
                 },
                 new Producto
                 {
@@ -47,7 +49,8 @@ namespace APIProductos.Data
                     Cantidad = 20,
                     Autor = "Sarah J. Maas",
                     Genero = "Fantasia",
-                    IdUsuario = 0
+                    IdUsuario = 0,
+                    urlImage= "https://starcrossedbookblog.com/wp-content/uploads/2019/05/23766634.jpg"
                 }
                 );
             modelBuilder.Entity<User>().HasData(
@@ -109,7 +112,7 @@ namespace APIProductos.Data
                     NombreEvento = "Concierto Camila",
                     DescripcionEvento = "Concierto de la agrupación mexicana Camila, una banda referente de la música pop en Latinoamérica. Mario Domm, Pablo Hurtado y Samo tienen el propósito de llevar un mensaje de amor a todo tipo de público, sin limitarse por las modas o exigencias que determina el mercado.",
                     diaEvento = new DateTime(2024, 03, 01),
-                    horaEvento = new TimeSpan(20, 00, 00), // 2:30 PM
+                    horaEvento = new TimeSpan(20, 00, 00),
                     Expositores = "Camila"
                 }
                 ); ;

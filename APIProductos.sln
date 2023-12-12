@@ -5,6 +5,8 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIProductos", "APIProductos.csproj", "{A6D1C0FF-37AD-479F-B939-7C77A45F45CA}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CRUD-MVC", "..\CRUD-MVC\CRUD-MVC.csproj", "{48F887F6-9C0C-4E7E-9695-AC255243FF7A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{A6D1C0FF-37AD-479F-B939-7C77A45F45CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6D1C0FF-37AD-479F-B939-7C77A45F45CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6D1C0FF-37AD-479F-B939-7C77A45F45CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48F887F6-9C0C-4E7E-9695-AC255243FF7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48F887F6-9C0C-4E7E-9695-AC255243FF7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48F887F6-9C0C-4E7E-9695-AC255243FF7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48F887F6-9C0C-4E7E-9695-AC255243FF7A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
