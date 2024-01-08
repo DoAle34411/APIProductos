@@ -13,6 +13,7 @@ namespace APIProductos.Data
         public DbSet<User> User { get; set; }
 
         public DbSet<Eventos> Eventos { get; set; }
+        public DbSet<Pedidos> Pedidos { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -115,7 +116,25 @@ namespace APIProductos.Data
                     horaEvento = new TimeSpan(20, 00, 00),
                     Expositores = "Camila"
                 }
-                ); ;
+                );
+            modelBuilder.Entity<Pedidos>().HasData(
+                new Pedidos
+                {
+                    IdPedido = 1,
+                    IdUsuario = 4,
+                    IdProducto=1,
+                    IsActivo=false,
+                    IdUsuarioActivo=0
+                },
+                new Pedidos
+                {
+                    IdPedido=2,
+                    IdUsuario = 4,
+                    IdProducto=2,
+                    IsActivo=true,
+                    IdUsuarioActivo=0,
+                }
+            );
         }
     }
 }

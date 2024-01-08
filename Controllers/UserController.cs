@@ -52,6 +52,27 @@ namespace APIProductos.Controllers
             }
         }
 
+        [HttpGet("{Cedula}")]
+        public async Task<IActionResult> Get(string Cedula)
+        {
+            try
+            {
+                User usuario_encontrado = await _db.User.Where(x => x.Cedula == Cedula).FirstOrDefaultAsync();
+
+                if (usuario_encontrado == null)
+                {
+                    Console.WriteLine("UsuarioEncontradoAPI");
+                    return BadRequest();
+                }
+                return Ok(usuario_encontrado);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("UsuarioNoEncontradoAPI");
+                return BadRequest(ex.Message);
+            }
+        }
+
         [HttpGet("{IdUsuario}")]
         public async Task<IActionResult> Get(int IdUsuario)
         {

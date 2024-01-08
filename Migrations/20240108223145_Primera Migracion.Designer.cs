@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APIProductos.Migrations
 {
     [DbContext(typeof(ApplicationDBContext))]
-    [Migration("20231212223914_Imagenes")]
-    partial class Imagenes
+    [Migration("20240108223145_Primera Migracion")]
+    partial class PrimeraMigracion
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -79,6 +79,49 @@ namespace APIProductos.Migrations
                             NombreEvento = "Concierto Camila",
                             diaEvento = new DateTime(2024, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             horaEvento = new TimeSpan(0, 20, 0, 0, 0)
+                        });
+                });
+
+            modelBuilder.Entity("APIProductos.Models.Pedidos", b =>
+                {
+                    b.Property<int>("IdPedido")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("IdPedido"));
+
+                    b.Property<int>("IdProducto")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdUsuario")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdUsuarioActivo")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsActivo")
+                        .HasColumnType("bit");
+
+                    b.HasKey("IdPedido");
+
+                    b.ToTable("Pedidos");
+
+                    b.HasData(
+                        new
+                        {
+                            IdPedido = 1,
+                            IdProducto = 1,
+                            IdUsuario = 4,
+                            IdUsuarioActivo = 0,
+                            IsActivo = false
+                        },
+                        new
+                        {
+                            IdPedido = 2,
+                            IdProducto = 2,
+                            IdUsuario = 4,
+                            IdUsuarioActivo = 0,
+                            IsActivo = true
                         });
                 });
 
@@ -170,7 +213,8 @@ namespace APIProductos.Migrations
 
                     b.Property<string>("Cedula")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar(10)");
 
                     b.Property<string>("Clave")
                         .IsRequired()

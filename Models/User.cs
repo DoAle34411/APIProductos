@@ -7,7 +7,8 @@ namespace APIProductos.Models
     {
         [Key]
         public int IdUsuario { get; set; }
-        [Required] 
+        [Required]
+        [StringLength(10)]
         public string Cedula { get; set;}
         [Required] 
         public string Nombres { get; set;}

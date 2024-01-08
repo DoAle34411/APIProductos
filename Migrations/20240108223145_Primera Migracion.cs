@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace APIProductos.Migrations
 {
     /// <inheritdoc />
-    public partial class Imagenes : Migration
+    public partial class PrimeraMigracion : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,6 +32,22 @@ namespace APIProductos.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Pedidos",
+                columns: table => new
+                {
+                    IdPedido = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    IdUsuario = table.Column<int>(type: "int", nullable: false),
+                    IdProducto = table.Column<int>(type: "int", nullable: false),
+                    IsActivo = table.Column<bool>(type: "bit", nullable: false),
+                    IdUsuarioActivo = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Pedidos", x => x.IdPedido);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Producto",
                 columns: table => new
                 {
@@ -42,8 +58,8 @@ namespace APIProductos.Migrations
                     Cantidad = table.Column<int>(type: "int", nullable: false),
                     Autor = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Genero = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    IdUsuario = table.Column<int>(type: "int", nullable: false),
-                    urlImage = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    urlImage = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    IdUsuario = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -56,7 +72,7 @@ namespace APIProductos.Migrations
                 {
                     IdUsuario = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Cedula = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Cedula = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     Nombres = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Apellidos = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Clave = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -79,6 +95,15 @@ namespace APIProductos.Migrations
                 table: "Eventos",
                 columns: new[] { "idEvento", "DescripcionEvento", "Expositores", "IdUsuario", "NombreEvento", "diaEvento", "horaEvento" },
                 values: new object[] { 2, "Concierto de la agrupación mexicana Camila, una banda referente de la música pop en Latinoamérica. Mario Domm, Pablo Hurtado y Samo tienen el propósito de llevar un mensaje de amor a todo tipo de público, sin limitarse por las modas o exigencias que determina el mercado.", "Camila", 0, "Concierto Camila", new DateTime(2024, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), new TimeSpan(0, 20, 0, 0, 0) });
+
+            migrationBuilder.InsertData(
+                table: "Pedidos",
+                columns: new[] { "IdPedido", "IdProducto", "IdUsuario", "IdUsuarioActivo", "IsActivo" },
+                values: new object[,]
+                {
+                    { 1, 1, 4, 0, false },
+                    { 2, 2, 4, 0, true }
+                });
 
             migrationBuilder.InsertData(
                 table: "Producto",
@@ -107,6 +132,9 @@ namespace APIProductos.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Eventos");
+
+            migrationBuilder.DropTable(
+                name: "Pedidos");
 
             migrationBuilder.DropTable(
                 name: "Producto");
